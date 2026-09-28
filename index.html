@@ -53,6 +53,26 @@
   mask-image: radial-gradient(ellipse 74% 82% at 44% 14%, black 0%, rgba(0,0,0,.99) 34%, rgba(0,0,0,.92) 48%, rgba(0,0,0,.70) 64%, rgba(0,0,0,.38) 79%, rgba(0,0,0,.10) 91%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 74% 82% at 44% 14%, black 0%, rgba(0,0,0,.99) 34%, rgba(0,0,0,.92) 48%, rgba(0,0,0,.70) 64%, rgba(0,0,0,.38) 79%, rgba(0,0,0,.10) 91%, transparent 100%);
 }
+@media (min-width: 900px) {
+  #экран-1 .блок__внутри { min-height: calc(100svh - 2 * var(--отступ-секции)); }
+  #экран-1 .первый-экран__картинка.картинка--край img {
+    mask-image:
+      linear-gradient(to right, transparent 0%, rgba(0,0,0,.42) 4%, black 10%, black 82%, rgba(0,0,0,.78) 89%, rgba(0,0,0,.32) 96%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.55) 3%, black 8%, black 92%, rgba(0,0,0,.58) 97%, transparent 100%);
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, rgba(0,0,0,.42) 4%, black 10%, black 82%, rgba(0,0,0,.78) 89%, rgba(0,0,0,.32) 96%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.55) 3%, black 8%, black 92%, rgba(0,0,0,.58) 97%, transparent 100%);
+    mask-composite: intersect; -webkit-mask-composite: source-in;
+    object-fit: contain; object-position: 50% 50%;
+  }
+  #экран-1 .шапка__лого { font-size: 1.125em; }
+  #экран-1 .шапка__лиц { font-size: 1.0625em; }
+  #экран-1 h1 { font-size: clamp(71px, 5.55vw, 84px); }
+  #экран-1 .лид { font-size: clamp(22px, 1.78vw, 27px); font-weight: 500; }
+  #экран-1 .список-иконок { font-size: 20px; gap: .55em; }
+  #экран-1 .первый-экран__действие .кнопка { font-size: 20px; min-height: 3.35em; padding: .9em 1.65em; }
+  #экран-1 .кикер { font-size: 19px; }
+}
 :root, .светлый { --цвет-кнопки: #F326A5; --цвет-на-кнопке: #24132F; --цвет-кнопки-навёл: #F54DB5; }
 .тёмный { --цвет-кнопки: #00AFA8; --цвет-на-кнопке: #24132F; --цвет-кнопки-навёл: #00D8CF; }
 
@@ -130,6 +150,79 @@
   </div>
 </section>
 <span id="экран-2" hidden></span>
+<section class="блок блок--прайс-лист блок--громко тёмный второй" id="экран-02" data-тип="прайс-лист" data-вёрстка="своя">
+  <span class="пятно" aria-hidden="true"></span>
+  <div class="блок__внутри">
+    <div class="секция__шапка секция__шапка--центр">
+      <p class="кикер">Что можно заказать</p>
+      <h2>Пять услуг — для дела<span class="перенос-телефон"><br></span> и для себя</h2>
+      <p class="лид секция__лид">Каждую услугу можно заказать отдельно</p>
+    </div>
+
+    <div class="услуги-направления секция__тело">
+      <article class="направление направление--дело">
+        <div class="направление__шапка">
+          <h3>Для дела</h3>
+          <svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9 15L19 5l2 2-10 10"/>
+  <path d="M4 20c2-1 2-5 5-5 1 0 2 1 2 2 0 3-4 3-7 3z"/>
+</svg>
+        </div>
+        <div class="услуга-строка">
+          <svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="4" width="18" height="16" rx="2"/>
+  <circle cx="8" cy="9" r="1.5"/>
+  <path d="M21 16l-5-5-8 8"/>
+</svg>
+          <div><h4>Визуалы с ИИ</h4><p>Изображения и оформление для социальных сетей, товаров и проектов</p></div>
+        </div>
+        <div class="услуга-строка">
+          <svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/>
+</svg>
+          <div><h4>Сайты</h4><p>Страницы, на которых можно представить себя, свои услуги или проект</p></div>
+        </div>
+        <div class="услуга-строка">
+          <svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M7 3h7l5 5v13H7z"/>
+  <path d="M14 3v5h5M10 13h5M10 17h5"/>
+</svg>
+          <div><h4>ПДФ-материалы</h4><p>Портфолио, презентации, гайды, каталоги и прайсы</p></div>
+        </div>
+      </article>
+
+      <article class="услуга-общая">
+        <svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="7" width="18" height="13" rx="2"/>
+  <circle cx="12" cy="13" r="3.5"/>
+  <path d="M8 7l1.5-3h5L16 7"/>
+</svg>
+        <div><h3>Нейрофотосессии</h3><p>Образы на основе ваших фотографий: для сайта и профессионального профиля, социальных сетей или просто для себя</p></div>
+        <div class="услуга-общая__метки"><span>Для дела</span><span>Для себя</span></div>
+      </article>
+
+      <article class="направление направление--себя">
+        <div class="направление__шапка">
+          <h3>Для себя</h3>
+          <svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>
+</svg>
+        </div>
+        <div class="услуга-строка">
+          <svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="4" width="18" height="16" rx="2"/>
+  <circle cx="8" cy="9" r="1.5"/>
+  <path d="M21 16l-5-5-8 8"/>
+</svg>
+          <div><h4>Реставрация старых фотографий</h4><p>Бережное восстановление повреждённых и выцветших снимков с сохранением внешности людей</p></div>
+        </div>
+      </article>
+    </div>
+
+    <a class="переход-работы" href="#экран-3">Посмотреть примеры работ ↓</a>
+  </div>
+</section>
+<span id="экран-3" hidden></span>
 <div class="липкая-кнопка липкая-кнопка--тёмная"><a class="кнопка кнопка--главная" href="https://vk.me/olsud_toys">Написать во ВКонтакте</a></div>
 <script>
 (function () {
