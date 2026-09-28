@@ -1772,3 +1772,157 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
       #экран-02 .направление,
       #экран-02 .услуга-общая { padding: var(--отступ-блока); }
     }
+
+/* экран 03 */
+#экран-03 .витрина-работ {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--отступ-блока);
+      margin-top: calc(var(--отступ-блока) * 1.8);
+    }
+    #экран-03 .кейс-плитка {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
+      border: var(--нить) solid var(--цвет-линия);
+      border-radius: var(--радиус-плитки);
+      box-shadow: var(--тень);
+    }
+    #экран-03.светлый .кейс-плитка { background: var(--цвет-фон-карточки); }
+    #экран-03.тёмный .кейс-плитка { background: var(--цвет-тёмный-фон-3); }
+    #экран-03 .кейс-плитка--широкая { grid-column: span 2; }
+    #экран-03 .кейс-плитка--реставрация { grid-column: 3; grid-row: 1; }
+    #экран-03 .кейс-плитка--нейро { grid-column: 1 / -1; grid-row: 2; }
+    #экран-03 .кейс-плитка--пдф { grid-column: 1 / -1; grid-row: 3; }
+    #экран-03 .кейс-плитка__медиа {
+      position: relative;
+      display: grid;
+      gap: var(--нить);
+      overflow: hidden;
+      background: var(--цвет-тёмный-фон);
+    }
+    #экран-03 .кейс-плитка__медиа img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      aspect-ratio: auto;
+      object-fit: cover;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+    #экран-03 .кейс-плитка__медиа--светильник {
+      grid-template-columns: 1.4fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      aspect-ratio: 16 / 9;
+    }
+    #экран-03 .кейс-плитка__медиа--светильник figure:first-child { grid-row: 1 / -1; }
+    #экран-03 .кейс-плитка__медиа--светильник img,
+    #экран-03 .кейс-плитка__медиа--реставрация img { object-fit: contain; }
+    #экран-03 .кейс-плитка__медиа--нейро {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      aspect-ratio: 16 / 7;
+      gap: var(--нить);
+    }
+    #экран-03 .кейс-плитка__медиа--нейро figure { min-width: 0; }
+    #экран-03 .кейс-плитка__медиа--нейро img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-width: none;
+      height: auto;
+      object-fit: initial;
+      transform: none;
+      transform-origin: left top;
+    }
+    #экран-03 .нейро-исходник img { width: 381%; left: -6.3%; top: -54.6%; }
+    #экран-03 .нейро-результат-1 img { width: 331%; left: -108.3%; top: -41.9%; }
+    #экран-03 .нейро-результат-2 img { width: 331%; left: -225.1%; top: -41.9%; }
+    #экран-03 .кейс-плитка__медиа--реставрация {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      aspect-ratio: 9 / 7;
+    }
+    #экран-03 .кейс-плитка__медиа--пдф {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      aspect-ratio: 16 / 7;
+      padding: calc(var(--отступ-блока) * .8);
+    }
+    #экран-03 .кейс-плитка__медиа--пдф img { object-fit: contain; }
+    #экран-03 .кейс-плитка__медиа--реставрация img { object-position: center top; }
+    #экран-03 .кейс-плитка__медиа figure { position: relative; margin: 0; overflow: hidden; }
+    #экран-03 .кадр-метка {
+      position: absolute;
+      left: .65em;
+      bottom: .65em;
+      z-index: 1;
+      padding: .35em .6em;
+      border-radius: var(--радиус-малый);
+      background: var(--цвет-стекло);
+      color: var(--цвет-тёмный-текст);
+      font-size: var(--кегль-мелкий);
+      font-weight: 700;
+    }
+    #экран-03 .кейс-плитка__текст {
+      display: grid;
+      align-content: start;
+      gap: .65em;
+      flex: 1;
+      padding: calc(var(--отступ-блока) * 1.05);
+    }
+    #экран-03 .кейс-плитка__формат {
+      justify-self: start;
+      padding: .42em .7em;
+      border: var(--нить) solid var(--цвет-акцент);
+      border-radius: var(--радиус-малый);
+      color: var(--цвет-акцент-тёмный);
+      font-size: var(--кегль-мелкий);
+      font-weight: 700;
+    }
+    #экран-03.тёмный .кейс-плитка__формат { color: var(--цвет-акцент-яркий); }
+    #экран-03 .кейс-плитка h3 { margin: 0; font-size: var(--кегль-лид); }
+    #экран-03 .кейс-плитка p { margin: 0; color: color-mix(in srgb, currentColor 82%, transparent); }
+    #экран-03 .витрина-пояснение { margin: calc(var(--отступ-блока) * 1.2) 0 0; }
+    @media (max-width: 899px) {
+      #экран-03 .секция__шапка--центр { text-align: left; align-items: flex-start; }
+      #экран-03 .витрина-работ { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #экран-03 .кейс-плитка--широкая { grid-column: 1 / -1; }
+      #экран-03 .кейс-плитка--реставрация { grid-column: 1; grid-row: auto; }
+      #экран-03 .кейс-плитка--нейро { grid-column: 1 / -1; grid-row: auto; }
+      #экран-03 .кейс-плитка--пдф { grid-column: 1 / -1; grid-row: auto; }
+      #экран-03 .кейс-плитка__медиа--реставрация { aspect-ratio: 1 / 1; }
+      #экран-03 .кейс-плитка__текст { padding: var(--отступ-блока); }
+      #экран-03 .кейс-плитка p { font-size: var(--кегль-текст); line-height: 1.55; }
+    }
+    @media (max-width: 560px) {
+      #экран-03 .витрина-работ {
+        width: 100%;
+        min-width: 0;
+        grid-template-columns: minmax(0, 1fr);
+      }
+      #экран-03 .кейс-плитка,
+      #экран-03 .кейс-плитка--широкая {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        grid-column: 1;
+      }
+      #экран-03 .кейс-плитка__медиа,
+      #экран-03 .кейс-плитка__медиа figure,
+      #экран-03 .кейс-плитка__медиа img { min-width: 0; max-width: 100%; }
+      #экран-03 .кейс-плитка__медиа--нейро img { max-width: none; }
+      #экран-03 .кейс-плитка__медиа--светильник .кадр-метка,
+      #экран-03 .кейс-плитка__медиа--нейро .кадр-метка {
+        left: .35em;
+        bottom: .35em;
+        padding: .2em .4em;
+        line-height: 1.15;
+        scale: .82;
+        transform-origin: left bottom;
+      }
+      #экран-03 .кейс-плитка__медиа--реставрация { aspect-ratio: 9 / 7; }
+      #экран-03 .кейс-плитка__медиа--нейро { grid-template-columns: 1fr; aspect-ratio: auto; }
+      #экран-03 .кейс-плитка__медиа--нейро figure { aspect-ratio: 3 / 4; }
+      #экран-03 .кейс-плитка__медиа--пдф { grid-template-columns: 1fr; aspect-ratio: auto; }
+      #экран-03 .кейс-плитка__медиа--пдф figure { aspect-ratio: 3 / 4; }
+    }
