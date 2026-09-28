@@ -46,6 +46,13 @@
 .шапка__лиц > .иконка { display: none; }
 @media (max-width: 899px) { .шапка__лиц .полн { white-space: nowrap; } }
 .первый-экран--разворот { min-height: 100svh; }
+#экран-1 .шапка__лиц { font-size: .9375em; }
+@media (max-width: 899px) { #экран-1 .лид { font-weight: 600; } }
+#экран-1 .первый-экран__действие [class*="контур"]::after { content: none; }
+#экран-1 .первый-экран__картинка.картинка--край img {
+  mask-image: radial-gradient(ellipse 74% 82% at 44% 14%, black 0%, rgba(0,0,0,.99) 34%, rgba(0,0,0,.92) 48%, rgba(0,0,0,.70) 64%, rgba(0,0,0,.38) 79%, rgba(0,0,0,.10) 91%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 74% 82% at 44% 14%, black 0%, rgba(0,0,0,.99) 34%, rgba(0,0,0,.92) 48%, rgba(0,0,0,.70) 64%, rgba(0,0,0,.38) 79%, rgba(0,0,0,.10) 91%, transparent 100%);
+}
 :root, .светлый { --цвет-кнопки: #F326A5; --цвет-на-кнопке: #24132F; --цвет-кнопки-навёл: #F54DB5; }
 .тёмный { --цвет-кнопки: #00AFA8; --цвет-на-кнопке: #24132F; --цвет-кнопки-навёл: #00D8CF; }
 
