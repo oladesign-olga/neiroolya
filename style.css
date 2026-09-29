@@ -1831,15 +1831,15 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     #экран-03 .светильник-результаты img { object-fit: cover; }
     #экран-03 .кейс-плитка__медиа--нейро {
       display: grid;
-      gap: var(--нить);
+      gap: calc(var(--отступ-блока) * .9);
       padding: var(--нить);
     }
     #экран-03 .нейро-главная {
       display: grid;
-      grid-template-columns: 1.15fr 4fr;
+      grid-template-columns: 1fr 4fr;
       grid-template-rows: minmax(0, 1fr);
       gap: var(--нить);
-      aspect-ratio: 16 / 5.2;
+      aspect-ratio: 15 / 4;
     }
     #экран-03 .нейро-результаты,
     #экран-03 .нейро-серия__результаты {
@@ -1849,24 +1849,31 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
       min-width: 0;
       overflow: hidden;
     }
-    #экран-03 .нейро-результаты { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    #экран-03 .нейро-результаты {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: minmax(0, 1fr);
+    }
     #экран-03 .нейро-дополнительно {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--нить);
+      gap: calc(var(--отступ-блока) * .9);
     }
     #экран-03 .нейро-серия {
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: var(--нить);
-      aspect-ratio: 16 / 6;
+      width: 100%;
+      aspect-ratio: 9 / 4;
     }
     #экран-03 .нейро-серия__результаты { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     #экран-03 .нейро-главная figure,
     #экран-03 .нейро-серия figure,
     #экран-03 .нейро-результаты figure,
     #экран-03 .нейро-серия__результаты figure { min-width: 0; }
-    #экран-03 .кейс-плитка__медиа--нейро img { object-fit: contain; }
+    #экран-03 .кейс-плитка__медиа--нейро img {
+      object-fit: cover;
+      object-position: center top;
+    }
     #экран-03 .кейс-плитка__медиа--реставрация {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       aspect-ratio: 9 / 7;
@@ -1960,14 +1967,133 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
       }
       #экран-03 .нейро-главная .нейро-исходник {
         grid-row: auto;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 3 / 4;
       }
       #экран-03 .нейро-результаты {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
       }
       #экран-03 .нейро-результаты figure { aspect-ratio: 3 / 4; }
       #экран-03 .нейро-дополнительно { grid-template-columns: 1fr; }
-      #экран-03 .нейро-серия { aspect-ratio: 16 / 6.5; }
+      #экран-03 .нейро-серия {
+        grid-template-columns: 1fr 2fr;
+        width: 100%;
+        aspect-ratio: 16 / 6.5;
+      }
       #экран-03 .кейс-плитка__медиа--пдф { grid-template-columns: 1fr; aspect-ratio: auto; }
       #экран-03 .кейс-плитка__медиа--пдф figure { aspect-ratio: 3 / 4; }
+    }
+
+/* экран 04 */
+#экран-04 .маршрут {
+      display: grid;
+      grid-template-columns: minmax(16rem, .72fr) minmax(30rem, 1.28fr);
+      gap: clamp(3rem, 8vw, 8rem);
+      align-items: start;
+    }
+    #экран-04 .маршрут__шапка {
+      position: sticky;
+      top: var(--отступ-блока);
+      display: grid;
+      gap: 1rem;
+      max-width: 29rem;
+    }
+    #экран-04 .маршрут__шапка .кикер,
+    #экран-04 .маршрут__шапка h2,
+    #экран-04 .маршрут__шапка .лид { margin: 0; }
+    #экран-04 .маршрут__шапка .лид {
+      max-width: 27rem;
+      font-size: var(--кегль-лид);
+      line-height: 1.55;
+    }
+    #экран-04 .маршрут__шаги {
+      position: relative;
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    #экран-04 .маршрут__шаги::before {
+      content: "";
+      position: absolute;
+      top: 2rem;
+      bottom: 2rem;
+      left: 1.5rem;
+      width: var(--нить);
+    }
+    #экран-04.светлый .маршрут__шаги::before { background: var(--цвет-акцент); }
+    #экран-04.тёмный .маршрут__шаги::before { background: var(--цвет-акцент-яркий); }
+    #экран-04 .маршрут__шаг {
+      position: relative;
+      display: grid;
+      grid-template-columns: 3rem minmax(0, 1fr);
+      gap: clamp(1rem, 2vw, 1.5rem);
+      align-items: start;
+      padding: 0 0 clamp(1.6rem, 3vw, 2.35rem);
+    }
+    #экран-04 .маршрут__шаг:last-child { padding-bottom: 0; }
+    #экран-04 .маршрут__номер {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      width: 3rem;
+      height: 3rem;
+      place-items: center;
+      border-radius: 50%;
+      font-size: var(--кегль-кикер);
+      font-weight: 800;
+    }
+    #экран-04.светлый .маршрут__номер {
+      background: var(--цвет-акцент);
+      color: var(--цвет-на-акценте);
+    }
+    #экран-04.тёмный .маршрут__номер {
+      background: var(--цвет-акцент-яркий);
+      color: var(--цвет-тёмный-фон);
+    }
+    #экран-04 .маршрут__текст {
+      display: grid;
+      gap: .45rem;
+      padding-top: .15rem;
+    }
+    #экран-04 .маршрут__текст h3 {
+      margin: 0;
+      font-size: var(--кегль-лид);
+      line-height: 1.25;
+    }
+    #экран-04 .маршрут__текст p {
+      max-width: 38rem;
+      margin: 0;
+      font-size: var(--кегль-текст);
+      line-height: 1.55;
+    }
+    #экран-04.светлый .маршрут__текст p { color: var(--цвет-текст-мягкий); }
+    #экран-04.тёмный .маршрут__текст p { color: var(--цвет-тёмный-текст); }
+    @media (max-width: 899px) {
+      #экран-04 .маршрут {
+        grid-template-columns: minmax(0, 1fr);
+        gap: calc(var(--отступ-блока) * 1.05);
+        padding-bottom: calc(7rem + env(safe-area-inset-bottom));
+      }
+      #экран-04 .маршрут__шапка {
+        position: static;
+        gap: .65rem;
+        max-width: 36rem;
+      }
+      #экран-04 .маршрут__шапка .лид { font-size: var(--кегль-текст); }
+      #экран-04 .маршрут__шаги { gap: .8rem; }
+      #экран-04 .маршрут__шаги::before { content: none; }
+      #экран-04 .маршрут__шаг {
+        grid-template-columns: 2.75rem minmax(0, 1fr);
+        gap: 1rem;
+        padding: 0;
+      }
+      #экран-04 .маршрут__номер {
+        width: 2.75rem;
+        height: 2.75rem;
+      }
+      #экран-04 .маршрут__текст { gap: .2rem; padding-top: 0; }
+      #экран-04 .маршрут__текст h3 { font-size: var(--кегль-текст); }
+      #экран-04 .маршрут__текст p { line-height: 1.4; }
     }
