@@ -2137,3 +2137,86 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
       #экран-04 .маршрут__текст h3 { font-size: var(--кегль-текст); }
       #экран-04 .маршрут__текст p { line-height: 1.4; }
     }
+
+/* экран 05 */
+#экран-05 .обо-мне {
+      display: grid;
+      grid-template-columns: minmax(18rem, .84fr) minmax(25rem, 1.16fr);
+      gap: clamp(2.5rem, 6vw, 6rem);
+      align-items: center;
+      max-width: 64rem;
+      margin-inline: auto;
+    }
+    #экран-05 .обо-мне__фото {
+      width: 100%;
+      max-width: 27rem;
+      margin: 0;
+      justify-self: end;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--радиус-плитки);
+      box-shadow: var(--тень-глубокая);
+    }
+    #экран-05 .обо-мне__фото img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+    #экран-05 .обо-мне__текст {
+      display: grid;
+      gap: clamp(1.15rem, 2vw, 1.65rem);
+      max-width: 35rem;
+    }
+    #экран-05 .обо-мне__текст .кикер,
+    #экран-05 .обо-мне__текст h2,
+    #экран-05 .обо-мне__текст p { margin: 0; }
+    #экран-05 .обо-мне__текст h2 { max-width: 34rem; }
+    #экран-05 .обо-мне__лид {
+      font-size: var(--кегль-лид);
+      font-weight: 750;
+      line-height: 1.45;
+    }
+    #экран-05 .обо-мне__рассказ {
+      display: grid;
+      gap: 1rem;
+      max-width: 34rem;
+    }
+    #экран-05 .обо-мне__рассказ p {
+      font-size: var(--кегль-текст);
+      line-height: 1.65;
+    }
+    #экран-05.светлый .обо-мне__лид { color: var(--цвет-акцент-тёмный); }
+    #экран-05.тёмный .обо-мне__лид { color: var(--цвет-акцент-яркий); }
+    #экран-05.светлый .обо-мне__рассказ { color: var(--цвет-текст-мягкий); }
+    #экран-05.тёмный .обо-мне__рассказ { color: var(--цвет-тёмный-текст); }
+    @media (max-width: 899px) {
+      #экран-05 .блок__внутри { padding-bottom: calc(6rem + env(safe-area-inset-bottom)); }
+      #экран-05 .обо-мне {
+        grid-template-columns: minmax(0, 1fr);
+        gap: calc(var(--отступ-блока) * 1.15);
+        max-width: 40rem;
+      }
+      #экран-05 .обо-мне__фото {
+        width: 100%;
+        max-width: none;
+        height: min(43svh, 22rem);
+        aspect-ratio: auto;
+        justify-self: stretch;
+      }
+      #экран-05 .обо-мне__фото img {
+        object-position: center 48%;
+      }
+      #экран-05 .обо-мне__текст {
+        gap: 1rem;
+        max-width: none;
+      }
+      #экран-05 .обо-мне__рассказ { gap: .85rem; }
+      #экран-05 .обо-мне__рассказ p { line-height: 1.55; }
+    }
+    @media (max-width: 560px) {
+      #экран-05 .обо-мне__фото { height: min(35svh, 17rem); }
+    }
