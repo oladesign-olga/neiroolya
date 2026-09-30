@@ -2141,17 +2141,17 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
 /* экран 05 */
 #экран-05 .обо-мне {
       display: grid;
-      grid-template-columns: minmax(18rem, .84fr) minmax(25rem, 1.16fr);
-      gap: clamp(2.5rem, 6vw, 6rem);
+      grid-template-columns: minmax(29rem, 1.05fr) minmax(25rem, .95fr);
+      gap: clamp(2.5rem, 4.5vw, 4.5rem);
       align-items: center;
-      max-width: 64rem;
+      max-width: 68rem;
       margin-inline: auto;
     }
     #экран-05 .обо-мне__фото {
       width: 100%;
-      max-width: 27rem;
+      max-width: 30rem;
       margin: 0;
-      justify-self: end;
+      justify-self: start;
       overflow: hidden;
       aspect-ratio: 4 / 5;
       border-radius: var(--радиус-плитки);
@@ -2201,6 +2201,7 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
         max-width: 40rem;
       }
       #экран-05 .обо-мне__фото {
+        order: -1;
         width: 100%;
         max-width: none;
         height: min(43svh, 22rem);
@@ -2208,7 +2209,7 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
         justify-self: stretch;
       }
       #экран-05 .обо-мне__фото img {
-        object-position: center 48%;
+        object-position: center 28%;
       }
       #экран-05 .обо-мне__текст {
         gap: 1rem;
@@ -2219,4 +2220,108 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     }
     @media (max-width: 560px) {
       #экран-05 .обо-мне__фото { height: min(35svh, 17rem); }
+    }
+
+/* экран 06 */
+#экран-06 .частые-вопросы {
+      display: grid;
+      gap: clamp(2rem, 4vw, 3.75rem);
+    }
+    #экран-06 .частые-вопросы__шапка {
+      display: grid;
+      gap: .85rem;
+      max-width: 47rem;
+    }
+    #экран-06 .частые-вопросы__шапка .кикер,
+    #экран-06 .частые-вопросы__шапка h2,
+    #экран-06 .частые-вопросы__шапка p { margin: 0; }
+    #экран-06 .частые-вопросы__шапка .кикер {
+      width: max-content;
+      max-width: 100%;
+      justify-self: start;
+    }
+    #экран-06 .частые-вопросы__подзаголовок {
+      max-width: 42rem;
+      font-size: var(--кегль-лид);
+      line-height: 1.55;
+    }
+    #экран-06.светлый .частые-вопросы__подзаголовок { color: var(--цвет-текст-мягкий); }
+    #экран-06.тёмный .частые-вопросы__подзаголовок { color: var(--цвет-тёмный-текст); }
+    #экран-06 .частые-вопросы__колонки {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(1.5rem, 3vw, 3rem);
+      align-items: start;
+    }
+    #экран-06 .частые-вопросы__колонка {
+      display: grid;
+      align-content: start;
+    }
+    #экран-06 .частые-вопросы__пункт {
+      border-bottom: var(--нить) solid color-mix(in srgb, var(--цвет-акцент) 45%, transparent);
+    }
+    #экран-06 .частые-вопросы__пункт:first-child {
+      border-top: var(--нить) solid color-mix(in srgb, var(--цвет-акцент) 45%, transparent);
+    }
+    #экран-06.светлый .частые-вопросы__пункт[open] { background: color-mix(in srgb, var(--цвет-акцент) 7%, transparent); }
+    #экран-06.тёмный .частые-вопросы__пункт[open] { background: color-mix(in srgb, var(--цвет-акцент-яркий) 7%, transparent); }
+    #экран-06 .частые-вопросы__вопрос {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1.25rem 20px;
+      cursor: pointer;
+      list-style: none;
+      font-size: var(--кегль-текст);
+      font-weight: 750;
+      line-height: 1.4;
+    }
+    #экран-06 .частые-вопросы__вопрос::-webkit-details-marker { display: none; }
+    #экран-06 .частые-вопросы__плюс {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border: var(--нить) solid currentColor;
+      border-radius: 50%;
+      font-size: var(--кегль-лид);
+      font-weight: 500;
+      line-height: 1;
+      transform-origin: right top;
+      transition: transform var(--длительность) var(--плавность);
+    }
+    #экран-06.светлый .частые-вопросы__плюс {
+      background: var(--цвет-акцент);
+      color: var(--цвет-на-акценте);
+    }
+    #экран-06.тёмный .частые-вопросы__плюс {
+      background: var(--цвет-акцент);
+      color: var(--цвет-на-акценте);
+    }
+    #экран-06 .частые-вопросы__пункт[open] .частые-вопросы__плюс { transform: rotate(45deg); }
+    #экран-06 .частые-вопросы__ответ {
+      max-width: 34rem;
+      padding: 0 20px 1.35rem;
+      font-size: var(--кегль-текст);
+      line-height: 1.65;
+    }
+    #экран-06.светлый .частые-вопросы__ответ { color: var(--цвет-текст-мягкий); }
+    #экран-06.тёмный .частые-вопросы__ответ { color: var(--цвет-тёмный-текст); }
+    @media (max-width: 899px) {
+      #экран-06 .блок__внутри { padding-bottom: calc(6rem + env(safe-area-inset-bottom)); }
+      #экран-06 .частые-вопросы { gap: 2rem; }
+      #экран-06 .частые-вопросы__колонки {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+      }
+      #экран-06 .частые-вопросы__колонка + .частые-вопросы__колонка .частые-вопросы__пункт:first-child {
+        border-top: 0;
+      }
+      #экран-06 .частые-вопросы__вопрос { padding: 1.1rem 20px; }
+      #экран-06 .частые-вопросы__ответ {
+        max-width: none;
+        padding: 0 20px 1.2rem;
+        line-height: 1.55;
+      }
     }
