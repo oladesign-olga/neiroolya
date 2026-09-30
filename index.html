@@ -142,7 +142,7 @@
         <li><i class="галка"></i><span>Сайты</span></li>
         <li><i class="галка"></i><span>ПДФ-материалы</span></li>
       </ul>
-      <div class="первый-экран__действие"><a class="кнопка кнопка--главная" href="https://vk.me/olsud_toys">Написать во ВКонтакте</a><a class="кнопка кнопка--контур" href="#экран-2">Посмотреть услуги ↓</a></div>
+      <div class="первый-экран__действие"><a class="кнопка кнопка--главная" href="https://vk.me/olsud_toys">Написать во ВКонтакте</a><a class="кнопка кнопка--контур" href="#экран-02">Посмотреть услуги ↓</a></div>
     </div>
     <figure class="картинка картинка--фото картинка--край первый-экран__картинка" style="--лицо-в-кадре: .22">
       <picture><source media="(max-width: 899px)" srcset="img/olga-cover.webp"><img src="img/olga-cover.webp" alt="Ольга Судзиловская — визуальный дизайнер с ИИ" data-лицо="50,22" fetchpriority="high"></picture>
@@ -222,14 +222,6 @@
     <a class="переход-работы" href="#экран-03">Посмотреть примеры работ ↓</a>
   </div>
 </section>
-<script>
-  document.querySelector('#экран-02 .переход-работы')?.addEventListener('click', function (событие) {
-    const работы = document.getElementById('экран-03');
-    if (!работы) return;
-    событие.preventDefault();
-    работы.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-</script>
 <span id="экран-3" hidden></span>
 <section class="блок блок--работы тёмный" id="экран-03" data-тип="работы" data-вёрстка="своя">
   <div class="блок__внутри">
@@ -284,6 +276,7 @@
               <div class="нейро-серия__результаты">
                 <figure class="фото фото--маска"><img src="img/neiro-diploma-result-1.jpeg" width="1122" height="1402" loading="lazy" alt="Женщина в образе у озера с лебедем"></figure>
                 <figure class="фото фото--маска"><img src="img/neiro-diploma-result-2.jpeg" width="1122" height="1402" loading="lazy" alt="Женщина в сиреневом фантазийном образе"></figure>
+                <figure class="фото фото--маска нейро-результат--только-мобильный"><img src="img/neiro-diploma-result-3.webp" width="1122" height="1402" loading="lazy" alt="Женщина в золотом образе Стрельца"><span class="кадр-метка">После</span></figure>
                 <span class="кадр-метка">После</span>
               </div>
             </div>

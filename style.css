@@ -1866,6 +1866,7 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
       aspect-ratio: 9 / 4;
     }
     #экран-03 .нейро-серия__результаты { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #экран-03 .нейро-результат--только-мобильный { display: none; }
     #экран-03 .нейро-главная figure,
     #экран-03 .нейро-серия figure,
     #экран-03 .нейро-результаты figure,
@@ -1960,25 +1961,45 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
       }
       #экран-03 .кейс-плитка__медиа--светильник figure { aspect-ratio: 16 / 9; }
       #экран-03 .кейс-плитка__медиа--реставрация { aspect-ratio: 9 / 7; }
-      #экран-03 .нейро-главная {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-rows: auto;
-        aspect-ratio: auto;
+      #экран-03 .кейс-плитка__медиа--нейро {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: calc(var(--отступ-блока) * .45);
       }
-      #экран-03 .нейро-главная .нейро-исходник {
-        grid-row: auto;
+      #экран-03 .нейро-главная,
+      #экран-03 .нейро-результаты,
+      #экран-03 .нейро-дополнительно,
+      #экран-03 .нейро-серия,
+      #экран-03 .нейро-серия__результаты {
+        display: contents;
+      }
+      #экран-03 .кейс-плитка__медиа--нейро figure {
+        width: 100%;
         aspect-ratio: 3 / 4;
       }
-      #экран-03 .нейро-результаты {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: repeat(2, minmax(0, 1fr));
-      }
-      #экран-03 .нейро-результаты figure { aspect-ratio: 3 / 4; }
-      #экран-03 .нейро-дополнительно { grid-template-columns: 1fr; }
-      #экран-03 .нейро-серия {
-        grid-template-columns: 1fr 2fr;
+      #экран-03 .нейро-результат--только-мобильный { display: block; }
+      #экран-03 .кейс-плитка__медиа--нейро img {
         width: 100%;
-        aspect-ratio: 16 / 6.5;
+        height: 100%;
+        object-fit: cover;
+      }
+      #экран-03 .нейро-результаты > .кадр-метка,
+      #экран-03 .нейро-серия__результаты > .кадр-метка { display: none; }
+      #экран-03 .нейро-результаты > figure:first-child::after,
+      #экран-03 .нейро-серия__результаты > figure:first-child::after {
+        content: "После";
+        position: absolute;
+        left: .35em;
+        bottom: .35em;
+        z-index: 2;
+        padding: .2em .4em;
+        border-radius: var(--радиус-малый);
+        background: var(--цвет-текст);
+        color: var(--цвет-фон);
+        font-size: var(--кегль-мелкий);
+        font-weight: 700;
+        line-height: 1.15;
+        scale: .82;
+        transform-origin: left bottom;
       }
       #экран-03 .кейс-плитка__медиа--пдф { grid-template-columns: 1fr; aspect-ratio: auto; }
       #экран-03 .кейс-плитка__медиа--пдф figure { aspect-ratio: 3 / 4; }
@@ -2070,6 +2091,25 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     }
     #экран-04.светлый .маршрут__текст p { color: var(--цвет-текст-мягкий); }
     #экран-04.тёмный .маршрут__текст p { color: var(--цвет-тёмный-текст); }
+    @media (min-width: 900px) {
+      #экран-04.фон--сетка::before { background-image: none; }
+      #экран-04 .маршрут {
+        grid-template-columns: minmax(0, 1fr);
+        gap: clamp(2.5rem, 5vw, 4.5rem);
+        width: 100%;
+        max-width: 50rem;
+        margin-inline: auto;
+      }
+      #экран-04 .маршрут__шапка {
+        position: static;
+        max-width: 44rem;
+      }
+      #экран-04 .маршрут__шапка .лид { max-width: 38rem; }
+      #экран-04 .маршрут__шаги { max-width: 48rem; }
+      #экран-04 .маршрут__шаг {
+        padding-bottom: clamp(1.35rem, 2vw, 2rem);
+      }
+    }
     @media (max-width: 899px) {
       #экран-04 .маршрут {
         grid-template-columns: minmax(0, 1fr);
