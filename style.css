@@ -2220,6 +2220,7 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     }
     @media (max-width: 560px) {
       #экран-05 .обо-мне__фото { height: min(35svh, 17rem); }
+      #экран-05 .обо-мне__фото img { object-position: center 18%; }
     }
 
 /* экран 06 */
