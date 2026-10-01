@@ -14,6 +14,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="style.css">
 <style>
+.липкая-кнопка .кнопка--главная { animation: none; }
+@media (max-width: 600px) {
+  #экран-1 .первый-экран__картинка { aspect-ratio: 5 / 6; }
+}
 :root {
   --шрифт-заголовков: Manrope, system-ui, sans-serif;
   --шрифт-текста: Manrope, system-ui, sans-serif;
@@ -142,7 +146,7 @@
         <li><i class="галка"></i><span>Сайты</span></li>
         <li><i class="галка"></i><span>ПДФ-материалы</span></li>
       </ul>
-      <div class="первый-экран__действие"><a class="кнопка кнопка--главная" href="https://vk.me/olsud_toys">Написать во ВКонтакте</a><a class="кнопка кнопка--контур" href="#экран-02">Посмотреть услуги ↓</a></div>
+      <div class="первый-экран__действие"><a class="кнопка кнопка--главная" href="https://vk.me/olsud_toys">Написать ВКонтакте</a><a class="кнопка кнопка--контур" href="#экран-02">Посмотреть услуги ↓</a></div>
     </div>
     <figure class="картинка картинка--фото картинка--край первый-экран__картинка" style="--лицо-в-кадре: .22">
       <picture><source media="(max-width: 899px)" srcset="img/olga-cover.webp"><img src="img/olga-cover.webp" alt="Ольга Судзиловская — визуальный дизайнер с ИИ" data-лицо="50,22" fetchpriority="high"></picture>
@@ -444,13 +448,13 @@
         <p class="контакты-финал__описание">Кратко опишите задачу. Если есть фотографии, тексты или другие материалы, их можно приложить сразу.</p>
       </div>
       <div class="контакты-финал__действия">
-        <a class="кнопка кнопка--главная" href="https://vk.me/olsud_toys">Написать во ВКонтакте</a>
+        <a class="кнопка кнопка--главная" href="https://vk.me/olsud_toys">Написать ВКонтакте</a>
         <a class="кнопка кнопка--контур" href="https://t.me/olgasydtoys">Написать в Телеграм</a>
       </div>
     </div>
   </div>
 </section>
-<div class="липкая-кнопка липкая-кнопка--тёмная"><a class="кнопка кнопка--главная" href="https://vk.me/olsud_toys">Написать во ВКонтакте</a></div>
+<div class="липкая-кнопка липкая-кнопка--тёмная"><a class="кнопка кнопка--главная" href="https://vk.me/olsud_toys">Написать ВКонтакте</a></div>
 <script>
 (function () {
   var СПИТ = "главная-на-виду";                       // класс на body; правило сна — в стилях

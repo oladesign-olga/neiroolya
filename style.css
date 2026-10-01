@@ -1952,7 +1952,7 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
         bottom: .35em;
         padding: .2em .4em;
         line-height: 1.15;
-        scale: .82;
+        scale: .92;
         transform-origin: left bottom;
       }
       #экран-03 .кейс-плитка__медиа--светильник {
@@ -1998,7 +1998,7 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
         font-size: var(--кегль-мелкий);
         font-weight: 700;
         line-height: 1.15;
-        scale: .82;
+        scale: .92;
         transform-origin: left bottom;
       }
       #экран-03 .кейс-плитка__медиа--пдф { grid-template-columns: 1fr; aspect-ratio: auto; }
