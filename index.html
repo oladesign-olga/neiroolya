@@ -18,6 +18,19 @@
 @media (max-width: 600px) {
   #экран-1 { padding-bottom: 52px; }
   #экран-1 .первый-экран__картинка { aspect-ratio: 5 / 6; }
+  #экран-1 .кикер { font-size: 16px; font-weight: 700; }
+  #экран-1 .первый-экран__текст {
+    width: calc(100% + 2 * var(--отступ-блока));
+    margin-inline: calc(-1 * var(--отступ-блока));
+    padding-inline: var(--отступ-блока);
+    background-image: radial-gradient(ellipse 105% 55% at 42% 48%, rgba(132,86,124,.58) 0%, rgba(184,128,166,.46) 44%, rgba(205,157,190,.24) 72%, transparent 100%);
+    background-size: 100% 84px;
+    background-repeat: no-repeat;
+  }
+  #экран-1 .первый-экран__картинка.картинка--край img {
+    mask-image: radial-gradient(ellipse 74% 82% at 44% 24%, black 0%, rgba(0,0,0,.99) 42%, rgba(0,0,0,.94) 57%, rgba(0,0,0,.80) 70%, rgba(0,0,0,.58) 82%, rgba(0,0,0,.24) 92%, transparent 100%) !important;
+    -webkit-mask-image: radial-gradient(ellipse 74% 82% at 44% 24%, black 0%, rgba(0,0,0,.99) 42%, rgba(0,0,0,.94) 57%, rgba(0,0,0,.80) 70%, rgba(0,0,0,.58) 82%, rgba(0,0,0,.24) 92%, transparent 100%) !important;
+  }
 }
 :root {
   --шрифт-заголовков: Manrope, system-ui, sans-serif;
