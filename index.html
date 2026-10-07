@@ -191,7 +191,28 @@
 </style>
 <link rel="stylesheet" href="style.css">
 <style>
-.липкая-кнопка .кнопка--главная { animation: none; }
+.кнопка.кнопка--главная, .кнопка.кнопка--главная:hover {
+  position: relative; overflow: hidden; isolation: isolate;
+  --заливка: var(--цвет-акцент);
+  --свет-кнопки: var(--цвет-тёмный-текст);
+  --объём: inset 0 1px 0 color-mix(in srgb, var(--свет-кнопки) 30%, transparent), 0 4px 0 color-mix(in srgb, var(--заливка) 55%, var(--цвет-тёмный-фон)), 0 .75em 1.5em -.5em color-mix(in srgb, var(--заливка) 70%, transparent);
+  animation: зов-кнопки 2.6s ease-in-out infinite;
+}
+#экран-07 .кнопка.кнопка--главная { --заливка: var(--цвет-тёплый-мягкий); }
+.кнопка.кнопка--главная::after {
+  content: ""; position: absolute; z-index: -1; inset: 0;
+  width: 45%; pointer-events: none;
+  background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--свет-кнопки) 40%, transparent), transparent);
+  animation: блик-кнопки 3s ease-in-out infinite;
+}
+@keyframes зов-кнопки {
+  0%, 100% { transform: scale(1); box-shadow: var(--объём), 0 0 .5em 0 color-mix(in srgb, var(--заливка) 35%, transparent); }
+  50% { transform: scale(1.04); box-shadow: var(--объём), 0 0 2.1em .375em color-mix(in srgb, var(--заливка) 70%, transparent); }
+}
+@keyframes блик-кнопки {
+  0% { transform: translateX(-160%) skewX(-18deg); }
+  55%, 100% { transform: translateX(330%) skewX(-18deg); }
+}
 @media (max-width: 600px) {
   #экран-1 { padding-bottom: 52px; }
   #экран-1 .первый-экран__картинка { aspect-ratio: 5 / 6; }
@@ -271,6 +292,16 @@
 :root, .светлый { --цвет-кнопки: #F326A5; --цвет-на-кнопке: #24132F; --цвет-кнопки-навёл: #F54DB5; }
 .тёмный { --цвет-кнопки: #00AFA8; --цвет-на-кнопке: #24132F; --цвет-кнопки-навёл: #00D8CF; }
 
+@media (min-width: 900px) and (max-height: 650px) {
+  #экран-1 .первый-экран__картинка { max-height: calc(100svh - 64px); }
+}
+@media (max-width: 600px) and (max-height: 600px) {
+  #экран-1 .первый-экран__картинка {
+    aspect-ratio: auto;
+    height: calc(100svh - 146px);
+  }
+}
+
 </style>
 <script>
 (function () {
@@ -313,9 +344,31 @@
   addEventListener("resize", function () { ждём = ждём || requestAnimationFrame(применить); });
 })();
 </script>
+<style id="мягкие-стыки">
+.стык { position: absolute; left: 0; right: 0; z-index: 0; pointer-events: none; height: var(--стык-высота, calc(var(--отступ-секции) * .6)); background: linear-gradient(var(--стык-к),
+  color-mix(in srgb, var(--стык-сосед) 50%, transparent), color-mix(in srgb, var(--стык-сосед) 33%, transparent) 18%, color-mix(in srgb, var(--стык-сосед) 19%, transparent) 40%, color-mix(in srgb, var(--стык-сосед) 8%, transparent) 66%, transparent); }
+.стык--верх { top: 0; --стык-к: to bottom; }  .стык--низ { bottom: 0; --стык-к: to top; }  .блок--подвал { --стык-высота: var(--отступ-блока); }
+.блок > .блок__внутри { z-index: 2; }
+.стык {
+  z-index: 1;
+  --стык-центр: color-mix(in srgb, var(--стык-свой) 50%, var(--стык-сосед));
+  background: linear-gradient(var(--стык-к), var(--стык-центр),
+    color-mix(in srgb, var(--стык-центр) 66%, transparent) 18%,
+    color-mix(in srgb, var(--стык-центр) 38%, transparent) 40%,
+    color-mix(in srgb, var(--стык-центр) 16%, transparent) 66%, transparent);
+}
+.тёмный > .стык { --стык-свой: var(--цвет-тёмный-фон); }
+.тёмный.второй > .стык { --стык-свой: var(--цвет-тёмный-фон-2); }
+.светлый > .стык { --стык-свой: var(--цвет-фон); }
+.светлый.второй > .стык { --стык-свой: var(--цвет-фон-2); }
+@media (max-width: 899px) {
+  #экран-1 > .стык { --стык-свой: var(--цвет-фон-2); }
+  #экран-02 > .стык--верх { --стык-сосед: var(--цвет-фон-2); }
+}
+</style>
 </head>
 <body class="с-липкой-кнопкой">
-<section class="блок блок--первый-экран первый-экран--разворот тёмный сторона--слева" id="экран-1" data-тип="первый-экран" data-схема="разворот" data-ключ-макета="светлая" data-картинка="фото">
+<section class="блок блок--первый-экран первый-экран--разворот тёмный сторона--слева" id="экран-1" data-тип="первый-экран" data-схема="разворот" data-ключ-макета="светлая" data-картинка="фото"><div class="стык стык--низ" aria-hidden="true" style="--стык-сосед: var(--цвет-тёмный-фон-2, var(--цвет-тёмный-фон))"></div>
   <header class="шапка">
     <a class="шапка__лого" href="#">НейроОля</a>
     <span class="шапка__лиц"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -345,7 +398,7 @@
   </div>
 </section>
 <span id="экран-2" hidden></span>
-<section class="блок блок--прайс-лист блок--громко тёмный второй" id="экран-02" data-тип="прайс-лист" data-вёрстка="своя">
+<section class="блок блок--прайс-лист блок--громко тёмный второй" id="экран-02" data-тип="прайс-лист" data-вёрстка="своя"><div class="стык стык--верх" aria-hidden="true" style="--стык-сосед: var(--цвет-тёмный-фон)"></div><div class="стык стык--низ" aria-hidden="true" style="--стык-сосед: var(--цвет-тёмный-фон)"></div>
   <span class="пятно" aria-hidden="true"></span>
   <div class="блок__внутри">
     <div class="секция__шапка секция__шапка--центр">
@@ -418,7 +471,7 @@
   </div>
 </section>
 <span id="экран-3" hidden></span>
-<section class="блок блок--работы тёмный" id="экран-03" data-тип="работы" data-вёрстка="своя">
+<section class="блок блок--работы тёмный" id="экран-03" data-тип="работы" data-вёрстка="своя"><div class="стык стык--верх" aria-hidden="true" style="--стык-сосед: var(--цвет-тёмный-фон-2, var(--цвет-тёмный-фон))"></div><div class="стык стык--низ" aria-hidden="true" style="--стык-сосед: var(--цвет-фон)"></div>
   <div class="блок__внутри">
     <div class="секция__шапка секция__шапка--центр">
       <p class="кикер">Мои работы</p>
@@ -515,7 +568,7 @@
   </div>
 </section>
 <span id="экран-4" hidden></span>
-<section class="блок блок--решение блок--тихо светлый" id="экран-04" data-тип="решение" data-вёрстка="своя">
+<section class="блок блок--решение блок--тихо светлый" id="экран-04" data-тип="решение" data-вёрстка="своя"><div class="стык стык--верх" aria-hidden="true" style="--стык-сосед: var(--цвет-тёмный-фон)"></div><div class="стык стык--низ" aria-hidden="true" style="--стык-сосед: var(--цвет-тёмный-фон)"></div>
   <div class="блок__внутри">
     <div class="маршрут">
       <header class="маршрут__шапка">
@@ -564,7 +617,7 @@
     </div>
   </div>
 </section>
-<section class="блок блок--о-себе тёмный фон--пятна" id="экран-05" data-тип="о-себе" data-вёрстка="своя">
+<section class="блок блок--о-себе тёмный фон--пятна" id="экран-05" data-тип="о-себе" data-вёрстка="своя"><div class="стык стык--верх" aria-hidden="true" style="--стык-сосед: var(--цвет-фон)"></div><div class="стык стык--низ" aria-hidden="true" style="--стык-сосед: var(--цвет-фон)"></div>
   <div class="блок__внутри">
     <div class="обо-мне">
       <div class="обо-мне__текст">
@@ -582,7 +635,7 @@
     </div>
   </div>
 </section>
-<section class="блок блок--вопросы-ответы блок--тихо светлый" id="экран-06" data-тип="вопросы-ответы" data-вёрстка="своя">
+<section class="блок блок--вопросы-ответы блок--тихо светлый" id="экран-06" data-тип="вопросы-ответы" data-вёрстка="своя"><div class="стык стык--верх" aria-hidden="true" style="--стык-сосед: var(--цвет-тёмный-фон)"></div><div class="стык стык--низ" aria-hidden="true" style="--стык-сосед: var(--цвет-тёмный-фон-2, var(--цвет-тёмный-фон))"></div>
   <div class="блок__внутри">
     <div class="частые-вопросы">
       <header class="частые-вопросы__шапка">
@@ -631,7 +684,7 @@
     </div>
   </div>
 </section>
-<section class="блок блок--контакты блок--тихо тёмный второй" id="экран-07" data-тип="контакты" data-вёрстка="своя">
+<section class="блок блок--контакты блок--тихо тёмный второй" id="экран-07" data-тип="контакты" data-вёрстка="своя"><div class="стык стык--верх" aria-hidden="true" style="--стык-сосед: var(--цвет-фон)"></div>
   <div class="блок__внутри">
     <div class="контакты-финал">
       <div class="контакты-финал__текст">
